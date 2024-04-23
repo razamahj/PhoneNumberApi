@@ -35,8 +35,10 @@ namespace PhoneNumbersApi.Tests
             var result = _accountsController.Get();
 
             //Assert
+            Assert.IsNotNull(result.Result);
             Assert.IsInstanceOf<OkObjectResult>(result.Result);
             var okObjectResult = (OkObjectResult)result.Result;
+            Assert.IsNotNull(okObjectResult);
             Assert.That(okObjectResult.Value, Is.EqualTo(accounts));
         }
 
@@ -52,8 +54,10 @@ namespace PhoneNumbersApi.Tests
             var result = _accountsController.CreateAccount(account);
 
             //Assert
+            Assert.IsNotNull(result.Result);
             Assert.IsInstanceOf<CreatedAtActionResult>(result.Result);
             var createdAtActionResult = (CreatedAtActionResult)result.Result;
+            Assert.IsNotNull(createdAtActionResult);
             Assert.That(createdAtActionResult.ActionName, Is.EqualTo("GetAccount"));
             Assert.That(createdAtActionResult.Value, Is.EqualTo(account));
         }
@@ -97,8 +101,10 @@ namespace PhoneNumbersApi.Tests
             var result = _accountsController.GetAccount(1);
 
             //Assert
+            Assert.IsNotNull(result.Result);
             Assert.IsInstanceOf<OkObjectResult>(result.Result);
             var okObjResult = (OkObjectResult)result.Result;
+            Assert.IsNotNull(okObjResult);
             Assert.That(okObjResult.Value, Is.EqualTo(account));
         }
 
